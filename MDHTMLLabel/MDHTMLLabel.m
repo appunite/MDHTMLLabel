@@ -1579,6 +1579,9 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 
 - (void)tintColorDidChange
 {
+    // TMP CRASH SOLUTION
+    return;
+    
     BOOL isInactive = (CGColorSpaceGetModel(CGColorGetColorSpace([self.tintColor CGColor])) == kCGColorSpaceModelMonochrome);
 
     NSMutableDictionary *mutableLinkAttributes = [self.linkAttributes mutableCopy];
