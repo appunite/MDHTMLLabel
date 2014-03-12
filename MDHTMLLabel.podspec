@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
   s.name     = 'MDHTMLLabel'
-  s.version  = ’99.0.2’
+  s.version  = '99.0.2'
   s.license  = 'MIT'
   s.summary  = 'A lightweight, easy to use replacement for UILabel which allows you to fully customize the appearence of text using HTML.'
   s.homepage = 'https://github.com/mattdonnelly/MDHTMLLabel'
   s.authors  = { 'Matt Donnelly' => 'mattdonnelly@me.com' }
-  s.source   = { :git => 'https://github.com/appunite/MDHTMLLabel.git', :tag => “99.0.2” }
+  s.source   = { :git => 'https://github.com/appunite/MDHTMLLabel.git', :tag => "99.0.2" }
   s.requires_arc = true
 
   s.ios.deployment_target = '6.0'
