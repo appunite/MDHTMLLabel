@@ -1461,12 +1461,18 @@ static inline CGSize CTFramesetterSuggestFrameSizeForAttributedStringWithConstra
 							NSString *key = [pair[0] lowercaseString];
 							if (pair.count >= 2) {
 								NSString *value = [[pair subarrayWithRange:NSMakeRange(1, [pair count] - 1)] componentsJoinedByString:@"="];
-								value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, 1)];
-								value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@"" options:NSLiteralSearch range:NSMakeRange([value length]-1, 1)];
-								value = [value stringByReplacingOccurrencesOfString:@"'" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, 1)];
-								value = [value stringByReplacingOccurrencesOfString:@"'" withString:@"" options:NSLiteralSearch range:NSMakeRange([value length]-1, 1)];
-								value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-								attributes[key] = value;
+                                if (value.length <= 0) continue;
+                                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, 1)];
+                                if (value.length <= 0) continue;
+                                value = [value stringByReplacingOccurrencesOfString:@"\"" withString:@"" options:NSLiteralSearch range:NSMakeRange([value length]-1, 1)];
+                                if (value.length <= 0) continue;
+                                value = [value stringByReplacingOccurrencesOfString:@"'" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, 1)];
+                                if (value.length <= 0) continue;
+                                value = [value stringByReplacingOccurrencesOfString:@"'" withString:@"" options:NSLiteralSearch range:NSMakeRange([value length]-1, 1)];
+                                if (value.length <= 0) continue;
+                                value = [value stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+                                if (value.length <= 0) continue;
+                                attributes[key] = value;
 							} else if (pair.count == 1) {
 								attributes[key] = key;
 							}
